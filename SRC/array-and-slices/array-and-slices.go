@@ -5,9 +5,12 @@ import "fmt"
 
 var g_groceries[]string
 
-func add_grocery(a string) {
+func add_grocery(a ...string) {
 	fmt.Println("Capacity", cap(g_groceries))
-	g_groceries=append(g_groceries, a)
+	for _,d:=range a {
+		g_groceries=append(g_groceries,d)
+	}
+	//g_groceries=append(g_groceries, a)
 }
 
 func list_groceries() {
@@ -22,12 +25,7 @@ func list_groceries() {
 }
 
 func main() {
-	add_grocery("Bread")
-	add_grocery("Cucumbers")
-	add_grocery("Salt and Vinegar Potato Chips")
-	add_grocery("Fruit Cake")
-	add_grocery("Pokemon Game")
-	add_grocery("Ice Cream")
-	add_grocery("Holiday Ice Cream")
+	add_grocery("Bread","Cucumbers","Salt and Vinegar Potato Chips","Fruit Cake,Pokemon Game","Holiday Ice Cream", "Corn", "Peas")
+
 	list_groceries()
 }
